@@ -274,3 +274,17 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+#Ignore pdf
+*.pdf
+
+#Ignore virtual env
+ml_env/
+
+#Ignore csv
+*.csv
+
+# Ignore Images
+*.jpg
+*.jpeg
+*.png
