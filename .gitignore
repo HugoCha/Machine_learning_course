@@ -280,6 +280,7 @@ TSWLatexianTemp*
 
 #Ignore virtual env
 ml_env/
+*env/
 
 #Ignore csv
 *.csv
