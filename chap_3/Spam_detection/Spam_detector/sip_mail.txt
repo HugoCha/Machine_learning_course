@@ -1,0 +1,760 @@
+Delivered-To: hugo.charrier2009@gmail.com
+Received: by 2002:a02:ce83:0:0:0:0:0 with SMTP id y3csp2906386jaq;
+        Mon, 23 Nov 2020 00:33:29 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJzkEg3QmYG4R8GqsWJo2vXbxXqrAY9y5Cy20ezQoNI2vDBWcPKEIcmjSGLLLVqaXvuBEOMr
+X-Received: by 2002:a7b:cd11:: with SMTP id f17mr23017459wmj.127.1606120409580;
+        Mon, 23 Nov 2020 00:33:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1606120409; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dRb2+GqUxnWtGMBkh4GD3/y7B9XjtLNM/wC9VvLYH+9QNRbEMnfzoJ1Cu1KUf59hKJ
+         E9OLf3VIVrhTCsmNlUef5+/gN3tWTM2i6ovoihxp3awGq9EiDVVaWY7iFgduozhQp6fU
+         paR86y6oUxhrJsNSSEs6YlYNWTjv1Hx74t7xA5paju1iUUh4a6CTNZ6PVt2Rx7vvm6JL
+         PdL/BjQ5kCiuiJO6NgoNQupeefJqhAN4KkTSaHFd3krOfVTNsxeMygnMoIyqAmUy4MMI
+         MMgedw7p8/U4jEQHn4G1nzqfpohOPwPPt3wIegO/LUtxadxbj+CQz/ETuBu2Ai090EHz
+         j6Ww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=in-reply-to:mime-version:date:message-id:from:references:to:subject
+         :dkim-signature:dkim-signature:dkim-filter;
+        bh=bsqYsWaDRvKsKV5hRJIFyoqGpYiWszIZ+MfE5gkdvCw=;
+        b=EGXW5TC76VyGecXbWUIUNWWifCb9UwLvv84DQRYtgPfG1vzyePbYkthSVCvEHXY5Hu
+         jpqh7iupkMaw9oEnOeCyHi4UhjjV3qkhKlTk2FOkxlMDaTpN2z3YN6Ki02iZ3e22R4sS
+         SAli2B/mneoRTkZSINwcBRKEFTnnqrUVEo3TxSbapCg6/7adP8spKQXpwn7fA/VqSQk/
+         i72E1qI5IkoLBu8T79SfJchxCDoHjldpElSO6obre3v6yJzruqYGUeR5FRifufYe1oQ6
+         jTY1o0K1ggv6fcwwP9qFw9Lg47/aSwzJOXnGaqGzBlJ4KXp4YhlGX20saQPcYvWMFR0/
+         kDhg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@dgfip.finances.gouv.fr header.s=pf3 header.b=WsSS+WJ3;
+       dkim=pass header.i=@dgfip.finances.gouv.fr header.s=mel header.b=XN6ZheLZ;
+       spf=pass (google.com: domain of sip.pessac.talence@dgfip.finances.gouv.fr designates 145.242.11.51 as permitted sender) smtp.mailfrom=sip.pessac.talence@dgfip.finances.gouv.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dgfip.finances.gouv.fr
+Return-Path: <sip.pessac.talence@dgfip.finances.gouv.fr>
+Received: from mail.dgfip.finances.gouv.fr (mta1-milter-bp.dgfip.finances.gouv.fr. [145.242.11.51])
+        by mx.google.com with ESMTPS id m13si10925647wrb.328.2020.11.23.00.33.29
+        for <hugo.charrier2009@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2020 00:33:29 -0800 (PST)
+Received-SPF: pass (google.com: domain of sip.pessac.talence@dgfip.finances.gouv.fr designates 145.242.11.51 as permitted sender) client-ip=145.242.11.51;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@dgfip.finances.gouv.fr header.s=pf3 header.b=WsSS+WJ3;
+       dkim=pass header.i=@dgfip.finances.gouv.fr header.s=mel header.b=XN6ZheLZ;
+       spf=pass (google.com: domain of sip.pessac.talence@dgfip.finances.gouv.fr designates 145.242.11.51 as permitted sender) smtp.mailfrom=sip.pessac.talence@dgfip.finances.gouv.fr;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dgfip.finances.gouv.fr
+Received: from mail.dgfip.finances.gouv.fr (localhost.localdomain [127.0.0.1]) by localhost (Postfix) with SMTP id 09B13500E52 for <hugo.charrier2009@gmail.com>; Mon, 23 Nov 2020 09:33:29 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 pf3pgsi001-a.pfz3 4CfgQw3MkKzN34gw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=dgfip.finances.gouv.fr; s=pf3; t=1606120408; bh=pzcQkCht24H+d1QYTqZAYQbgpnbx0kuREv+1sgdmbho=; h=Subject:To:References:From:Date:In-Reply-To:From; b=WsSS+WJ3MPF9YWMC8CbJz/1fMzLmH7qiHCGTWhB3b+VFA/W8SKtjC2Pq8D8u4mZM4
+	 aYPl3bFKCs/GNh36aWtYQbuTxR67NFwXPmAJnTW5yCbZP5//V06tSmcObP58HFYciP
+	 gsG6udySi7RdSAIQm7rgyowL6fCMNHDcJfLv9K/mxdpMNp8T2IazChskjQ+prWlroJ
+	 4BWhKSddynbwuwOjQR+X2abRXFQahulEAQB+eyT3Znw7fWZzANy5XWy9BOuyvklfJq
+	 8MNdiRQktcdEjWTpCzlJ5LpZn3OeoBvxY6PrZILER38lWGDRNB4L+6VF7jf5Qlw0wg
+	 PWqeqwGN2LgVw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=dgfip.finances.gouv.fr; s=mel; t=1606120408; bh=pzcQkCht24H+d1QYTqZAYQbgpnbx0kuREv+1sgdmbho=; h=Subject:To:References:From:Date:In-Reply-To; b=XN6ZheLZtcWN31hCCpZajPOCiAcY+5T24EOvM6b3f85vR3P1F6DRc9VCqY9mFMUSi
+	 22mToJlZEaVKrnDAdX5dK72sJelCJfJRTwtJL7A30haodKvLtndAdoan4yykZTYXZY
+	 4ALNWe8Iu1i9PqEYGe8rjn88XrylemCDguxhPB1xzMnQICzWnwz4ErJlUbp+1POmdU
+	 jXmqRInIZyUmqPyBye4nrWmJsxCInYXhXQRbi0Z5c8JMXZawK7guBrEBgZso/O1kgb
+	 9TgsXzRk5pACqFZjpffraFrAKbXfBE1ps3WJvSORMVJAAMUNnIFxmFPNKyxcK9Qs5A
+	 rIh6hBjAAVt7A==
+Subject: Re: Taxe d'habitation 2020
+To: Hugo Charrier <hugo.charrier2009@gmail.com>
+References: <CAA9CDLYyqiv=hwMuEebZ_vt+RtZPpB_fLwvJPJMYny4jc2+adg@mail.gmail.com> <18518_1605886527_5FB7E23F_18518_360_1_13e581eb-ac61-593f-c1e3-fb42e9f3a478@dgfip.finances.gouv.fr> <CAA9CDLbw30+XapC_3N4Gz26MbPgMbLTS6N2Uh33MrGH5-NdMJw@mail.gmail.com> <24260_1605887752_5FB7E708_24260_133_1_7af0577b-99d5-166b-51a5-98737b659085@dgfip.finances.gouv.fr> <CAA9CDLYfwNVeeiDk+1N10BOB9nOdibS+1oy+2FaXTLX+2ceGCw@mail.gmail.com>
+From: "sip.pessac.talence" <sip.pessac.talence@dgfip.finances.gouv.fr>
+Message-ID: <12261_1606120409_5FBB73D8_12261_301_3_8c216219-b3f6-a863-ad17-19c07019bafa@dgfip.finances.gouv.fr>
+Date: Mon, 23 Nov 2020 09:33:27 +0100
+MIME-Version: 1.0
+In-Reply-To: <CAA9CDLYfwNVeeiDk+1N10BOB9nOdibS+1oy+2FaXTLX+2ceGCw@mail.gmail.com>
+Content-Type: multipart/alternative; boundary="------------A623D5520CBDAE88B576E6EB"
+
+--------------A623D5520CBDAE88B576E6EB
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Bonjour,
+
+Votre Taxe d'Habitation 2020 a fait l'objet d'un dégrèvement total ce jour.
+Vous restez redevable de la Contribution à l'Audiovisuel Public de 138€.
+Vous recevrez prochainement un avis de dégrèvement.
+
+A titre informatif, la réduction de votre Taxe d'Habitation au titre de 
+vos revenus ne peut se faire automatiquement que si vous déposez dans 
+les délais votre propre déclaration de revenus en mentionnant votre 
+_adresse réelle au 01/01_ de l'année d'imposition.
+Au cas particulier, vous avez indiqué sur votre déclaration des revenus 
+de 2019 que vous résidiez au 01/01/2020 à Saint Brévin les Pins (44) et 
+non Pessac (33).
+Pensez à vérifier et corriger le cas échéant cette adresse sur vos 
+prochaines déclarations de revenus.
+
+Cordialement
+
+Marie OYHAMBERRY
+Agent Principal des Finances Publiques
+SIP PESSAC TALENCE
+Cité Administrative - rue Jules Ferry
+Boîte 32
+33090 BORDEAUX CEDEX
+
+
+
+-------- Message original --------
+*Sujet :* Re: Taxe d'habitation 2020
+*De :* Hugo Charrier <hugo.charrier2009@gmail.com>
+*Pour :* Sip Pessac.talence <sip.pessac.talence@dgfip.finances.gouv.fr>
+
+*Date :* Vendredi 20 Novembre 2020, 17:50
+
+> Re,
+>
+> Merci de vos réponses rapides.
+> Le premier janvier 2020 j'habitais encore à Pessac et ce jusqu'au 24 
+> juillet 2020. J'ai depuis déménagé chez mes parents dans le 44. C'est 
+> l'adresse indiquée sur l'avis d'imposition puisque lors de ma 
+> déclaration d'impôt sur le revenu, j'avais d'ores et déjà déménagé 
+> dans le 44. Au premier Janvier 2020, j'étais salarié et je touchais 
+> 80% du smic(en contrat de professionnalisation), c'est pourquoi j'ai 
+> été exonéré de l'impôt sur le revenu 2019 (de janvier à septembre 2019 
+> j'étais étudiant puis de septembre 2019 à avril 2020 salarié).
+> Je réitère donc ma demande de recalculer le montant de la taxe.
+>
+> Bien cordialement. Bon week end.
+>
+> Hugo Charrier
+>
+> Le ven. 20 nov. 2020 à 16:55, sip.pessac.talence 
+> <sip.pessac.talence@dgfip.finances.gouv.fr 
+> <mailto:sip.pessac.talence@dgfip.finances.gouv.fr>> a écrit :
+>
+>     Bonjour,
+>
+>     Pourquoi avoir déposé dans le 44 si vous occupiez un logement dans
+>     le 33 ?
+>     Depuis quand avez-vous déménagé dans le 44 ?
+>     Étiez vous occupant du logement au 01/01/2020 ?
+>
+>     La Taxe d'Habitation (TH) est un calcul complexe qui dépend de
+>     plusieurs éléments :
+>
+>      *
+>
+>         Le Revenu Fiscal de Référence (RFR) de _l’ensemble_des
+>         occupants du logement au _1er janvier_(ou des parents si
+>         l’enfant est rattaché à ces derniers)
+>
+>      *
+>
+>         Le nombre de parts de l’ensemble des occupants du logement au
+>         1er janvier (ou des parents si l’enfant est rattaché à ces
+>         derniers)
+>
+>      *
+>
+>         La Valeur Locative propre à chaque logement (VL)
+>
+>      *
+>
+>         Les taux des taxes appliquées par les communes
+>
+>     Si vous déposez à une autre adresse, votre RFR et votre nombre de
+>     parts ne peuvent pas être pris en compte.
+>
+>     Merci de votre retour.
+>
+>     Cordialement
+>
+>     ------------------------------------------------------------------------
+>     DGFIP 	*Véronique Villard-Basset*
+>     *Agent des Finances Publiques*
+>     *SIP Pessac Talence*
+>     *Tel: 05.56.93.35.20*
+>
+>
+>     Eco-attitude 	*Adoptez l'éco-attitude.*
+>     N'imprimez ce mail que si c'est vraiment nécessaire
+>
+>
+>
+>     -------- Message original --------
+>     *Sujet :* Re: Taxe d'habitation 2020
+>     *De :* Hugo Charrier <hugo.charrier2009@gmail.com>
+>     <mailto:hugo.charrier2009@gmail.com>
+>     *Pour :* Sip Pessac.talence
+>     <sip.pessac.talence@dgfip.finances.gouv.fr>
+>     <mailto:sip.pessac.talence@dgfip.finances.gouv.fr>
+>
+>     *Date :* Vendredi 20 Novembre 2020, 16:49
+>
+>>     Re,
+>>
+>>     Je possède déjà un compte sur impot gouv via france connect et
+>>     l'adresse de mes parents apparaît sur mon avis d'imposition 2020,
+>>     donc le changement doit déjà être effectif.
+>>
+>>     Cordialement.
+>>
+>>     Hugo Charrier
+>>
+>>     Le ven. 20 nov. 2020 à 16:35, sip.pessac.talence
+>>     <sip.pessac.talence@dgfip.finances.gouv.fr
+>>     <mailto:sip.pessac.talence@dgfip.finances.gouv.fr>> a écrit :
+>>
+>>         Bonjour,
+>>
+>>         J’attire votre attention sur les points suivants :
+>>
+>>         Les étudiants rattachés au foyer fiscal de leurs parents et
+>>         qui louent un logement doivent transmettre à
+>>         l'Administration, _chaque année_, la copie de l'avis
+>>         d'imposition de leurs parents pour permettre le calcul exact
+>>         de leur Taxe d'Habitation. Les parents peuvent également
+>>         déclarer que leur enfant majeur rattaché a un logement à une
+>>         autre adresse au _1_^_er_ _janvier_lorsqu’ils déclarent leurs
+>>         revenus par Internet.
+>>
+>>         En effet, la prise en compte du Revenu Fiscal de Référence et
+>>         du nombre de parts de leurs parents peut permettre le calcul
+>>         d'abattement de la Taxe d'Habitation. De même la transmission
+>>         de la Taxe d'Habitation des parents peut permettre à
+>>         l'étudiant d'être exonéré de la Contribution à l'Audiovisuel
+>>         Public si les parents la payent déjà.
+>>
+>>         *Au cas particulier*, je vous invite à nous transmettre
+>>         l'avis d'imposition 2020 des revenus 2019 de vos parents pour
+>>         faire vérifier si vous pouvez bénéficier d'abattement au
+>>         titre de la TH 2020 ou votre avis 2020 des revenus 2019
+>>         personnel.
+>>
+>>         Si vous avez déménagé, merci de nous communiquer votre
+>>         nouvelle adresse et la date de votre départ.
+>>
+>>         Je vous invite également à nous transmettre une pièce
+>>         d'identité afin que nous vous transmettions vos identifiants.
+>>
+>>         Ainsi vous pourrez créer votre espace particulier sur notre
+>>         site impots.gouv.fr <http://impots.gouv.fr>
+>>
+>>         Vous pourrez suivre vos avis plus facilement et payer en
+>>         ligne. Vous pourrez également communiquer avec nous rapidement.
+>>
+>>
+>>         Cordialement
+>>
+>>         ------------------------------------------------------------------------
+>>         DGFIP 	*Véronique Villard-Basset*
+>>         *Agent des Finances Publiques*
+>>         *SIP Pessac Talence*
+>>         *Tel: 05.56.93.35.20*
+>>
+>>
+>>         Eco-attitude 	*Adoptez l'éco-attitude.*
+>>         N'imprimez ce mail que si c'est vraiment nécessaire
+>>
+>>
+>>
+>>         -------- Message original --------
+>>         *Sujet :* Taxe d'habitation 2020
+>>         *De :* Hugo Charrier <hugo.charrier2009@gmail.com>
+>>         <mailto:hugo.charrier2009@gmail.com>
+>>         *Pour :* Sip Pessac.talence
+>>         <sip.pessac.talence@dgfip.finances.gouv.fr>
+>>         <mailto:sip.pessac.talence@dgfip.finances.gouv.fr>
+>>
+>>         *Date :* Vendredi 20 Novembre 2020, 16:01
+>>
+>>>         Bonjour,
+>>>
+>>>         J'ai récemment reçu le montant de ma taxe d'habitation 2020,
+>>>         le montant me paraît élevé étant donné que je ne vis plus à
+>>>         Pessac depuis le 24 juillet 2020, que j'étais exonéré
+>>>         d'impôt sur le revenu en 2020, (j'étais étudiant en 2019) et
+>>>         la taxe doit être supprimée l'année prochaine. Je suis
+>>>         désormais au chômage, et j'habite chez mes parents dans le
+>>>         44. Par conséquent, est-ce que le montant de ma taxe
+>>>         d'habitation 2020 a été correctement calculé ?Je vous joins
+>>>         également la feuille d'imposition de la taxe d'habitation.
+>>>
+>>>         mon n° fiscal : 30 27 106 024 278
+>>>
+>>>         Bien cordialement, bonne journée.
+>>>
+>>>         Hugo Charrier
+>>
+>
+
+
+--------------A623D5520CBDAE88B576E6EB
+Content-Type: multipart/related; boundary="------------E71B9A23506CF6D348F74A9C"
+
+--------------E71B9A23506CF6D348F74A9C
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  </head>
+  <body smarttemplateinserted="true" bgcolor="#FFFFFF" text="#000000">
+    <div id="smartTemplate4-template"></div>
+    Bonjour,<br>
+    <br>
+    Votre Taxe d'Habitation 2020 a fait l'objet d'un dégrèvement total
+    ce jour.<br>
+    Vous restez redevable de la Contribution à l'Audiovisuel Public de
+    138€.<br>
+    Vous recevrez prochainement un avis de dégrèvement.<br>
+    <br>
+    A titre informatif, la réduction de votre Taxe d'Habitation au titre
+    de vos revenus ne peut se faire automatiquement que si vous déposez
+    dans les délais votre propre déclaration de revenus en mentionnant
+    votre <u>adresse réelle au 01/01</u> de l'année d'imposition.<br>
+    Au cas particulier, vous avez indiqué sur votre déclaration des
+    revenus de 2019 que vous résidiez au 01/01/2020 à Saint Brévin les
+    Pins (44) et non Pessac (33). <br>
+    Pensez à vérifier et corriger le cas échéant cette adresse sur vos
+    prochaines déclarations de revenus.<br>
+    <br>
+    Cordialement<br>
+    <br>
+    <div class="moz-signature">
+      <pre>Marie OYHAMBERRY
+Agent Principal des Finances Publiques
+SIP PESSAC TALENCE
+Cité Administrative - rue Jules Ferry
+Boîte 32
+33090 BORDEAUX CEDEX</pre>
+    </div>
+    <br>
+    <div id="smartTemplate4-quoteHeader"><br>
+      -------- Message original --------<br>
+      <b>Sujet :</b> Re: Taxe d'habitation 2020<br>
+      <b>De :</b> Hugo Charrier <a class="moz-txt-link-rfc2396E" href="mailto:hugo.charrier2009@gmail.com">&lt;hugo.charrier2009@gmail.com&gt;</a><br>
+      <b>Pour :</b> Sip Pessac.talence
+      <a class="moz-txt-link-rfc2396E" href="mailto:sip.pessac.talence@dgfip.finances.gouv.fr">&lt;sip.pessac.talence@dgfip.finances.gouv.fr&gt;</a><br>
+      <br>
+      <b>Date :</b> Vendredi 20 Novembre 2020, 17:50<br>
+      <br>
+    </div>
+    <blockquote
+cite="mid:CAA9CDLYfwNVeeiDk+1N10BOB9nOdibS+1oy+2FaXTLX+2ceGCw@mail.gmail.com"
+      type="cite">
+      <div dir="ltr">
+        <div>Re,</div>
+        <div><br>
+        </div>
+        <div>Merci de vos réponses rapides.</div>
+        <div>Le premier janvier 2020 j'habitais encore à Pessac et ce
+          jusqu'au 24 juillet 2020. J'ai depuis déménagé chez mes
+          parents dans le 44. C'est l'adresse indiquée sur l'avis
+          d'imposition puisque lors de ma déclaration d'impôt sur le
+          revenu, j'avais d'ores et déjà déménagé dans le 44. Au premier
+          Janvier 2020, j'étais salarié et je touchais 80% du smic(en
+          contrat de professionnalisation), c'est pourquoi j'ai été
+          exonéré de l'impôt sur le revenu 2019 (de janvier à septembre
+          2019 j'étais étudiant puis de septembre 2019 à avril 2020
+          salarié).</div>
+        <div> Je réitère donc ma demande de recalculer le montant de la
+          taxe.</div>
+        <div><br>
+        </div>
+        <div>Bien cordialement. Bon week end.</div>
+        <div><br>
+        </div>
+        <div>Hugo Charrier<br>
+        </div>
+      </div>
+      <br>
+      <div class="gmail_quote">
+        <div dir="ltr" class="gmail_attr">Le ven. 20 nov. 2020 à 16:55,
+          sip.pessac.talence &lt;<a moz-do-not-send="true"
+            href="mailto:sip.pessac.talence@dgfip.finances.gouv.fr">sip.pessac.talence@dgfip.finances.gouv.fr</a>&gt;
+          a écrit :<br>
+        </div>
+        <blockquote class="gmail_quote" style="margin:0px 0px 0px
+          0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+          <div bgcolor="#FFFFFF">
+            <div id="gmail-m_7805621063069428594smartTemplate4-template">Bonjour,<br>
+              <br>
+              Pourquoi avoir déposé dans le 44 si vous occupiez un
+              logement dans le 33 ?<br>
+              Depuis quand avez-vous déménagé dans le 44 ?<br>
+              Étiez vous occupant du logement au 01/01/2020 ?<br>
+              <p style="margin-bottom:0cm;line-height:100%"
+                align="justify"><font color="#000000"><font
+                    face="Calibri, sans-serif">La Taxe d'Habitation (TH)
+                    est un calcul complexe qui dépend de plusieurs
+                    éléments :</font></font></p>
+              <ul>
+                <li>
+                  <p style="margin-bottom:0cm;line-height:100%"
+                    align="justify"> <font color="#000000"><font
+                        face="Dax, serif"><font face="Calibri,
+                          sans-serif">Le Revenu Fiscal de Référence
+                          (RFR) de </font><font face="Calibri,
+                          sans-serif"><u>l’ensemble</u></font><font
+                          face="Calibri, sans-serif"> des occupants du
+                          logement au </font><font face="Calibri,
+                          sans-serif"><u>1er janvier</u></font><font
+                          face="Calibri, sans-serif"><span
+                            style="text-decoration:none"> </span></font><font
+                          face="Calibri, sans-serif"><span
+                            style="text-decoration:none">(ou des parents
+                            si l’enfant est rattaché à ces derniers)</span></font></font></font></p>
+                </li>
+                <li>
+                  <p style="margin-bottom:0cm;line-height:100%"
+                    align="justify"> <font color="#000000"><font
+                        face="Calibri, sans-serif">Le nombre de parts de
+                        l’ensemble des occupants du logement au 1er
+                        janvier <span style="text-decoration:none">(ou
+                          des parents si l’enfant est rattaché à ces
+                          derniers)</span></font></font></p>
+                </li>
+                <li>
+                  <p style="margin-bottom:0cm;line-height:100%"
+                    align="justify"> <font color="#000000"><font
+                        face="Calibri, sans-serif">La Valeur Locative
+                        propre à chaque logement (VL)</font></font></p>
+                </li>
+                <li>
+                  <p style="margin-bottom:0cm;line-height:100%"
+                    align="justify"> <font color="#000000"><font
+                        face="Calibri, sans-serif">Les taux des taxes
+                        appliquées par les communes</font></font></p>
+                </li>
+              </ul>
+              Si vous déposez à une autre adresse, votre RFR et votre
+              nombre de parts ne peuvent pas être pris en compte.<br>
+              <br>
+              Merci de votre retour.<br>
+              <br>
+              Cordialement<br>
+            </div>
+            <br>
+            <div>
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td colspan="3">
+                      <hr></td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" width="50"> <img
+                        src="cid:part2.AB947C26.915C96EB@dgfip.finances.gouv.fr"
+                        name="m_7805621063069428594_Image1" alt="DGFIP"
+                        height="48" align="middle" border="0" width="41">
+                    </td>
+                    <td valign="top" width="200"> <font
+                        style="font-size:8pt" face="Arial, sans-serif"
+                        color="#023854" size="1"> <b>Véronique
+                          Villard-Basset</b> </font> <br>
+                      <font style="font-size:8pt" face="Arial,
+                        sans-serif" color="#c28f28" size="1"> <b>Agent
+                          des Finances Publiques</b> </font> <br>
+                      <font style="font-size:8pt" face="Arial,
+                        sans-serif" color="#c28f28" size="1"> <b>SIP
+                          Pessac Talence</b> </font> <br>
+                      <font style="font-size:8pt" face="Arial,
+                        sans-serif" color="#023854" size="1"> <b>Tel:
+                          05.56.93.35.20</b> </font> <br>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                  <tr>
+                    <td align="center" valign="middle" width="50"><img
+                        src="cid:part3.30F07BD6.16C113F8@dgfip.finances.gouv.fr"
+                        alt="Eco-attitude" height="27" align="middle"
+                        border="0" width="27"></td>
+                    <td valign="top" width="250"> <font
+                        style="font-size:8pt" face="Arial, sans-serif"
+                        color="#36a629" size="1"> <b>Adoptez
+                          l'éco-attitude.</b> </font><br>
+                      <font style="font-size:7pt" face="Arial,
+                        sans-serif" color="#36a629" size="1">N'imprimez
+                        ce mail que si c'est vraiment nécessaire</font><br>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            <div
+              id="gmail-m_7805621063069428594smartTemplate4-quoteHeader"><br>
+              -------- Message original --------<br>
+              <b>Sujet :</b> Re: Taxe d'habitation 2020<br>
+              <b>De :</b> Hugo Charrier <a moz-do-not-send="true"
+                href="mailto:hugo.charrier2009@gmail.com"
+                target="_blank">&lt;hugo.charrier2009@gmail.com&gt;</a><br>
+              <b>Pour :</b> Sip Pessac.talence <a
+                moz-do-not-send="true"
+                href="mailto:sip.pessac.talence@dgfip.finances.gouv.fr"
+                target="_blank">&lt;sip.pessac.talence@dgfip.finances.gouv.fr&gt;</a><br>
+              <br>
+              <b>Date :</b> Vendredi 20 Novembre 2020, 16:49<br>
+              <br>
+            </div>
+            <blockquote type="cite">
+              <div dir="ltr">
+                <div>Re,</div>
+                <div><br>
+                </div>
+                <div>Je possède déjà un compte sur impot gouv via france
+                  connect et l'adresse de mes parents apparaît sur mon
+                  avis d'imposition 2020, donc le changement doit déjà
+                  être effectif.</div>
+                <div><br>
+                </div>
+                <div>Cordialement.</div>
+                <div><br>
+                </div>
+                <div>Hugo Charrier<br>
+                </div>
+              </div>
+              <br>
+              <div class="gmail_quote">
+                <div dir="ltr" class="gmail_attr">Le ven. 20 nov. 2020
+                  à 16:35, sip.pessac.talence &lt;<a
+                    moz-do-not-send="true"
+                    href="mailto:sip.pessac.talence@dgfip.finances.gouv.fr"
+                    target="_blank">sip.pessac.talence@dgfip.finances.gouv.fr</a>&gt;
+                  a écrit :<br>
+                </div>
+                <blockquote class="gmail_quote" style="margin:0px 0px
+                  0px 0.8ex;border-left:1px solid
+                  rgb(204,204,204);padding-left:1ex">
+                  <div bgcolor="#FFFFFF">
+                    <div
+id="gmail-m_7805621063069428594gmail-m_1825151557156675340smartTemplate4-template">Bonjour,<br>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Calibri, sans-serif">J’attire votre
+                            attention sur les points suivants :</font></font></p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Dax, serif"><font face="Calibri,
+                              sans-serif">Les étudiants rattachés au
+                              foyer fiscal de leurs parents et qui
+                              louent un logement doivent transmettre à
+                              l'Administration, </font><font
+                              face="Calibri, sans-serif"><u>chaque année</u></font><font
+                              face="Calibri, sans-serif">, la copie de
+                              l'avis d'imposition de leurs parents pour
+                              permettre le calcul exact de leur Taxe
+                              d'Habitation. Les parents peuvent
+                              également déclarer que leur enfant majeur
+                              rattaché a un logement à une autre adresse
+                              au </font><font face="Calibri,
+                              sans-serif"><u>1</u></font><sup><font
+                                face="Calibri, sans-serif"><u>er</u></font></sup><font
+                              face="Calibri, sans-serif"><u> janvier</u></font><font
+                              face="Calibri, sans-serif"> lorsqu’ils
+                              déclarent leurs revenus par Internet.</font></font></font></p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Calibri, sans-serif">En effet, la
+                            prise en compte du Revenu Fiscal de
+                            Référence et du nombre de parts de leurs
+                            parents peut permettre le calcul
+                            d'abattement de la Taxe d'Habitation. De
+                            même la transmission de la Taxe d'Habitation
+                            des parents peut permettre à l'étudiant
+                            d'être exonéré de la Contribution à
+                            l'Audiovisuel Public si les parents la
+                            payent déjà.</font></font></p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Calibri, sans-serif"><b>Au cas
+                              particulier</b>, je vous invite à nous
+                            transmettre l'avis d'imposition 2020 des
+                            revenus 2019 de vos parents pour faire
+                            vérifier si vous pouvez bénéficier
+                            d'abattement au titre de la TH 2020 ou votre
+                            avis 2020 des revenus 2019 personnel.<br>
+                          </font></font></p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Calibri, sans-serif">Si vous avez
+                            déménagé, merci de nous communiquer votre
+                            nouvelle adresse et la date de votre départ.<br>
+                          </font></font></p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"> </p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Calibri, sans-serif">Je vous invite
+                            également à nous transmettre une pièce
+                            d'identité afin que nous vous transmettions
+                            vos identifiants.</font></font></p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Calibri, sans-serif">Ainsi vous
+                            pourrez créer votre espace particulier sur
+                            notre site <a moz-do-not-send="true"
+                              href="http://impots.gouv.fr"
+                              target="_blank">impots.gouv.fr</a></font></font></p>
+                      <p style="margin-bottom:0cm;line-height:100%"
+                        align="justify"><font color="#000000"><font
+                            face="Calibri, sans-serif">Vous pourrez
+                            suivre vos avis plus facilement et payer en
+                            ligne. Vous pourrez également communiquer
+                            avec nous rapidement.</font></font></p>
+                      <br>
+                      Cordialement<br>
+                    </div>
+                    <br>
+                    <div>
+                      <table border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td colspan="3">
+                              <hr></td>
+                          </tr>
+                          <tr>
+                            <td valign="middle" width="50"> <img
+                                src="cid:part8.28144CD2.6FC59884@dgfip.finances.gouv.fr"
+name="m_7805621063069428594_m_1825151557156675340_Image1" alt="DGFIP"
+                                height="48" align="middle" border="0"
+                                width="41"> </td>
+                            <td valign="top" width="200"> <font
+                                style="font-size:8pt" face="Arial,
+                                sans-serif" color="#023854" size="1"> <b>Véronique
+                                  Villard-Basset</b> </font> <br>
+                              <font style="font-size:8pt" face="Arial,
+                                sans-serif" color="#c28f28" size="1"> <b>Agent
+                                  des Finances Publiques</b> </font> <br>
+                              <font style="font-size:8pt" face="Arial,
+                                sans-serif" color="#c28f28" size="1"> <b>SIP
+                                  Pessac Talence</b> </font> <br>
+                              <font style="font-size:8pt" face="Arial,
+                                sans-serif" color="#023854" size="1"> <b>Tel:
+                                  05.56.93.35.20</b> </font> <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br>
+                      <table border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td align="center" valign="middle"
+                              width="50"><img
+                                src="cid:part9.A0C72539.FE5816C2@dgfip.finances.gouv.fr"
+                                alt="Eco-attitude" height="27"
+                                align="middle" border="0" width="27"></td>
+                            <td valign="top" width="250"> <font
+                                style="font-size:8pt" face="Arial,
+                                sans-serif" color="#36a629" size="1"> <b>Adoptez
+                                  l'éco-attitude.</b> </font><br>
+                              <font style="font-size:7pt" face="Arial,
+                                sans-serif" color="#36a629" size="1">N'imprimez
+                                ce mail que si c'est vraiment nécessaire</font><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <br>
+                    <div
+id="gmail-m_7805621063069428594gmail-m_1825151557156675340smartTemplate4-quoteHeader"><br>
+                      -------- Message original --------<br>
+                      <b>Sujet :</b> Taxe d'habitation 2020<br>
+                      <b>De :</b> Hugo Charrier <a
+                        moz-do-not-send="true"
+                        href="mailto:hugo.charrier2009@gmail.com"
+                        target="_blank">&lt;hugo.charrier2009@gmail.com&gt;</a><br>
+                      <b>Pour :</b> Sip Pessac.talence <a
+                        moz-do-not-send="true"
+                        href="mailto:sip.pessac.talence@dgfip.finances.gouv.fr"
+                        target="_blank">&lt;sip.pessac.talence@dgfip.finances.gouv.fr&gt;</a><br>
+                      <br>
+                      <b>Date :</b> Vendredi 20 Novembre 2020, 16:01<br>
+                      <br>
+                    </div>
+                    <blockquote type="cite">
+                      <div dir="ltr">
+                        <div>Bonjour,</div>
+                        <div><br>
+                        </div>
+                        <div>J'ai récemment reçu le montant de ma taxe
+                          d'habitation 2020, le montant me paraît élevé
+                          étant donné que je ne vis plus à Pessac depuis
+                          le 24 juillet 2020, que j'étais exonéré
+                          d'impôt sur le revenu en 2020, (j'étais
+                          étudiant en 2019) et la taxe doit être
+                          supprimée l'année prochaine. Je suis désormais
+                          au chômage, et j'habite chez mes parents dans
+                          le 44. Par conséquent, est-ce que le montant
+                          de ma taxe d'habitation 2020 a été
+                          correctement calculé ?<span
+                            style="font-size:16.6667px;font-family:sans-serif"><font
+                              size="2"><font face="arial,sans-serif"> Je
+                                vous joins également la feuille
+                                d'imposition de la taxe d'habitation.<br>
+                              </font></font></span></div>
+                        <div><br>
+                        </div>
+                        <div>mon n° fiscal : 30 27 106 024 278<span
+                            style="font-size:16.6667px;font-family:sans-serif">
+                            <br>
+                          </span></div>
+                        <div><span
+                            style="font-size:16.6667px;font-family:sans-serif"><font
+                              size="2"><font face="arial,sans-serif"><br>
+                              </font></font></span></div>
+                        <div><span
+                            style="font-size:16.6667px;font-family:sans-serif"><font
+                              size="2"><font face="arial,sans-serif">Bien
+                                cordialement, bonne journée.</font></font></span></div>
+                        <div><span
+                            style="font-size:16.6667px;font-family:sans-serif"><font
+                              size="2"><font face="arial,sans-serif"><br>
+                              </font></font></span></div>
+                        <div><span
+                            style="font-size:16.6667px;font-family:sans-serif"><font
+                              size="2"><font face="arial,sans-serif">Hugo
+                                Charrier<br>
+                              </font></font></span></div>
+                      </div>
+                    </blockquote>
+                    <br>
+                  </div>
+                </blockquote>
+              </div>
+            </blockquote>
+            <br>
+          </div>
+        </blockquote>
+      </div>
+    </blockquote>
+    <br>
+  </body>
+</html>
+
+--------------E71B9A23506CF6D348F74A9C
+Content-Type: image/jpeg; name="m_7805621063069428594_Image1"
+Content-Transfer-Encoding: base64
+Content-ID: <part2.AB947C26.915C96EB@dgfip.finances.gouv.fr>
+Content-Disposition: inline; filename="m_7805621063069428594_Image1"
+
+
+--------------E71B9A23506CF6D348F74A9C
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-ID: <part3.30F07BD6.16C113F8@dgfip.finances.gouv.fr>
+
+
+--------------E71B9A23506CF6D348F74A9C
+Content-Type: image/jpeg; name="m_7805621063069428594_m_1825151557156675340_Image1"
+Content-Transfer-Encoding: base64
+Content-ID: <part8.28144CD2.6FC59884@dgfip.finances.gouv.fr>
+Content-Disposition: inline; filename="m_7805621063069428594_m_1825151557156675340_Image1"
+
+
+--------------E71B9A23506CF6D348F74A9C
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-ID: <part9.A0C72539.FE5816C2@dgfip.finances.gouv.fr>
+
+
+--------------E71B9A23506CF6D348F74A9C--
+--------------A623D5520CBDAE88B576E6EB--

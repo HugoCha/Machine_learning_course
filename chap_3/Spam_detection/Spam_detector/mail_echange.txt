@@ -1,0 +1,153 @@
+Delivered-To: hugo.charrier2009@gmail.com
+Received: by 2002:a02:ce83:0:0:0:0:0 with SMTP id y3csp2591178jaq;
+        Sun, 8 Nov 2020 06:37:47 -0800 (PST)
+X-Received: by 2002:adf:f286:: with SMTP id k6mr13180129wro.34.1604846267679;
+        Sun, 08 Nov 2020 06:37:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1604846267; cv=none;
+        d=google.com; s=arc-20160816;
+        b=aun10J8uxWC6tc8veWeKXDSW2LmxC7uJ5szWE0tBeB0wjxRrIoP+FGB/nB797QtIQz
+         s5BKUGAMWoFK3lAknxkf9J25eHxEhfZudkd9e49F/bcDmPTtqZPxEfPqoGNdffXEeyDy
+         taikyV2tcknVFVKZfAbUH2d4p+2iVv2KdXsebCKmNYOwELql6sBnkLXtoCwCMAeFwdRj
+         ZCPunQ/KQ+yq5T8ZbEdddSiiPJV8VrMiBTHzhf7kXuASfev2u42HudDW+gw/ez2SAhbC
+         BvJzdlsLWqfWkgvFPrAZafnAa6WAGvUnYmrJY0dbb9V3Op1TAoJyTZriPZwB7g/Jnbi7
+         fGFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=ofESr7hWoh4t9/USrb6mBJqMbF5Y2Ogs6D3r1GreXeo=;
+        b=FJOuU/G5COkye1lRhfHk/IHPInCS3RStQ1pRO0DN9Q7E2JdZuupW6orTkVe7UDY/IE
+         HRp0hdgEIowhsScwJobuP7QFK5dj5f70x4msUf5uAFMb4fN/S3Svvk4pOb6BbMSu1+6G
+         +PN1HSoZZbFlLHzFmMUM2to++5toZbDs12RvoBNAni8AuGmG7wXODZCjl6nV7yUl0bZQ
+         vVmj5V+fQcwfdDj00wPp4Nv4HOkQjaHmhieQkeLMX5Bs1lhEKJUMF/XN5HJGrNAbv5XA
+         2sWTjLynQBjYDYSYEKtmbCLxGdX0kKhs1rdK2BpjyeAS5HENI1bpYizSFApe+jOjyykg
+         0fXw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=u4m5BuT4;
+       spf=pass (google.com: domain of iloverobotics18@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=iloverobotics18@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <iloverobotics18@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id x2sor3037522wru.52.2020.11.08.06.37.47
+        for <hugo.charrier2009@gmail.com>
+        (Google Transport Security);
+        Sun, 08 Nov 2020 06:37:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of iloverobotics18@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=u4m5BuT4;
+       spf=pass (google.com: domain of iloverobotics18@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=iloverobotics18@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=ofESr7hWoh4t9/USrb6mBJqMbF5Y2Ogs6D3r1GreXeo=;
+        b=u4m5BuT4TFIy9rY8Jql9+RoXWhWtAmqxs7eaMppytvohnyEp3gIjxFcpfsqo9Uj+8K
+         y/4BkhDC5cOq8kfJuSHsrwHxTFKZ39NjP/qMm+Xhtco3tWZ1OiwUAYl69s6XPiPBEm1Y
+         jui+BIo/rciTwVBJJgqSXIfHjyYBt+2iCu+Ttgsc/bhal+w9tOZyEJL6P2J2rev2kjqE
+         96k/Xkw2B5zyHkpMrjQUStTAyJwSxnL8BIQoNHW/eMURPedVIusBowe7yJ56u4W0A0Gx
+         PyW4+noLOAXH6+ZUVwGcPoYUkwBPgANc8Fxj8MxYbdi/5IDVcfRVTHk7+56/JeWX3qb4
+         TDOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=ofESr7hWoh4t9/USrb6mBJqMbF5Y2Ogs6D3r1GreXeo=;
+        b=cAxv4ipyy+hJk1PoYLQ1Wcv+mGP+LDO7ZgYYQEaj+hn2JeYglYzJL9+Ln/jRJGUvQC
+         HvPaenzcJn4RkqfJV0N18Gqq//J/Un59P50MMSYuaCO0jOTZRB7p4CVCeMbTJEsc9rj/
+         c/QJsagS3C0Kki3LV5+KdjcsVeuPre8K/ve6Bpw9o08kuhzVpHnQAFHOsp2NEcPKqFgh
+         D6PmJmyJ9GVWBhgkbnsMBtdhBiDzTWs21gyGdMQjB9KGrez2TCHkzLXxJTJeNjeQz6qj
+         1LRVp/1upRYGexopCZYTzyeO9Jrctfz9zc7i5FUFxT4r4dHPPHDpVhDPTzaZ09uVoE/3
+         aqZg==
+X-Gm-Message-State: AOAM531Y/wznuPVnqRoTypaZHBmbvAH9ZFQy7SaA+oqwaV8B44ehkDBY hCqW5yObgTx2sS21KHCiQPrpLOUp2SWkLcq7BVFT6YaJ3+DvAA==
+X-Google-Smtp-Source: ABdhPJwVUtPlp6tCOpeaHxnyKxoCReOEVVyvOtXx+x9zRnoRyXjAQ4zcrtwMGc1RYbD32G69gnZ/L+mY6IotMk/H7Vw=
+X-Received: by 2002:a5d:5583:: with SMTP id i3mr9478236wrv.336.1604846267124; Sun, 08 Nov 2020 06:37:47 -0800 (PST)
+MIME-Version: 1.0
+References: <CAA9CDLb5iULJY7BLYoeF7i_Z13f1VXF9Nv=KWU1uvsBdnbT3KA@mail.gmail.com>
+In-Reply-To: <CAA9CDLb5iULJY7BLYoeF7i_Z13f1VXF9Nv=KWU1uvsBdnbT3KA@mail.gmail.com>
+From: ILove Robotics <iloverobotics18@gmail.com>
+Date: Sun, 8 Nov 2020 09:37:35 -0500
+Message-ID: <CAAO0v_yLTbM=fstapkw-U9Xtqi=26Pu0Peiy2Bc1cUqn0D1Acg@mail.gmail.com>
+Subject: Re: Robotics Software Engineer
+To: Hugo Charrier <hugo.charrier2009@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000abd21305b39963fa"
+
+--000000000000abd21305b39963fa
+Content-Type: text/plain; charset="UTF-8"
+
+Hi  Hugo!
+
+
+Congratulations!
+
+
+You are one of the winners of this week's "6-Month Free Mentorship"
+program.
+
+
+
+Just message me on WhatsApp at +1 402-882-0174  & I will send you more
+infor.
+
+
+
+Thanks
+Dr. Robot
+I Love Robotics
+
+
+
+On Sun, Nov 8, 2020 at 7:18 AM Hugo Charrier <hugo.charrier2009@gmail.com>
+wrote:
+
+> Hi,
+>
+> I saw your youtube channel recently and I'm very interesting in becoming a
+> software engineer, that's why I I land on your channel. I think you give
+> great guidance for beginner. You must keep doing what you do as their are
+> not so much robotic channel.  I would be pleased to have a 6 month free
+> courses.
+>
+> Best regards from France [?],
+>
+> Hugo Charrier.
+>
+
+--000000000000abd21305b39963fa
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><p style=3D"margin:0in;font-family:Calibr=
+i;font-size:11pt">Hi=C2=A0 Hugo!</p><p style=3D"margin:0in;font-family:Cali=
+bri;font-size:11pt"><br></p><p style=3D"margin:0in;font-family:Calibri;font=
+-size:11pt">Congratulations!=C2=A0</p><p style=3D"margin:0in;font-family:Ca=
+libri;font-size:11pt"><br></p><p style=3D"margin:0in;font-family:Calibri;fo=
+nt-size:11pt">You are one of the winners of this week&#39;s &quot;6-Month F=
+ree Mentorship&quot; program.=C2=A0</p>
+
+<p style=3D"margin:0in;font-family:Calibri;font-size:11pt"><span style=3D"f=
+ont-size:11pt">=C2=A0</span><br></p>
+
+<p style=3D"margin:0in;font-family:Calibri;font-size:11pt">Just message me =
+on
+WhatsApp at +1 402-882-0174=C2=A0 &amp; I will send you more infor.</p>
+
+<p style=3D"margin:0in;font-family:Calibri;font-size:11pt">=C2=A0</p>
+
+<p style=3D"margin:0in;font-family:Calibri;font-size:11pt">Thanks</p><div><=
+div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"ltr">Dr. Robot<div>I =
+Love Robotics</div><div><img src=3D"https://drive.google.com/uc?id=3D1VDpdC=
+gvgp2wlMPPNGOaMXNWFDg82CtNN&amp;export=3Ddownload" width=3D"96" height=3D"6=
+7"><br></div></div></div></div><br></div></div><br><div class=3D"gmail_quot=
+e"><div dir=3D"ltr" class=3D"gmail_attr">On Sun, Nov 8, 2020 at 7:18 AM Hug=
+o Charrier &lt;<a href=3D"mailto:hugo.charrier2009@gmail.com">hugo.charrier=
+2009@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" st=
+yle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padd=
+ing-left:1ex"><div dir=3D"ltr"><div>Hi,</div><div><br></div><div>I saw your=
+ youtube channel recently and I&#39;m very interesting in becoming a softwa=
+re engineer, that&#39;s why I I land on your channel. I think you give grea=
+t guidance for beginner. You must keep doing what you do as their are not s=
+o much robotic channel.=C2=A0 I would be pleased to have a 6 month free cou=
+rses.</div><div><br></div><div>Best regards from France =F3=BE=93=A7,</div>=
+<div><br></div><div>Hugo Charrier.<br></div></div>
+</blockquote></div>
+
+--000000000000abd21305b39963fa--

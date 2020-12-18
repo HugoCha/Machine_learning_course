@@ -1,0 +1,215 @@
+Delivered-To: hugo.charrier2009@gmail.com
+Received: by 2002:a17:906:a104:b029:2fb:2927:1e27 with SMTP id t4csp1739472ejy;
+        Mon, 7 Dec 2020 03:43:19 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJygXg/lXegZ4RaaKAYdZjvrXSV/xo/+Opl7zfknxfYRegxyLrW9zhINZi1cjyWxK3SGTggm
+X-Received: by 2002:a17:902:82c7:b029:da:cb88:38f8 with SMTP id u7-20020a17090282c7b02900dacb8838f8mr16088491plz.49.1607341398338;
+        Mon, 07 Dec 2020 03:43:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1607341398; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dYgQ/CNq+SecfzZqgff/OPsAPqBxd//BNDqO1QRkGrpyIWv+DC7uqJCdif2cCltOSd
+         H5hUmrqJTIjD4bdc10B4GODz9Zx+mfA4afFjCe47nh6opiCA6OecQ1R/9/FWtUpGKAi5
+         h9T5DVgwHJ9h0qDjlwIO37cUnfb1bheUGLNKgC2APc1lmI+P/y/NaAe+YpT3PJqKD9Za
+         J3WWWUXX3plc0kfTd6kqSuCnTu6rE5QDbcFNZLd8NyM1IgjPeYGuqQOxaIxFeJjEXJ9u
+         yEvNiaAxIqkUTRmDuLYJUVfOqAY9HhaPNnowmOhuXpyd8ZCZd8XVUmvy6F/VU0HLmGq1
+         U04g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:to:from:date;
+        bh=UHRRaif0k62bXUU5+5ZMJZryfEklzC1+L8NjwrTSdP0=;
+        b=zCGCPmvGz6108qWzpAcFFlKMWcxVwzxR3FB8hq4kugRYlBlKO2CQqLFvea/kx7NXll
+         oNh3NhaHh/PTL7Pt4gyy2X1B9gROGlRjFxNFnVK9QFO82Z7DA3SpKIsiXhOzC8mDfnOT
+         2ALSYb+Vio+76kbDZx6oEenBVop8urKCuaU3NaE6KLBfS8ogHEQ/YPSd0qXJ1UO36ZH/
+         hTfZmKxlG/xm6/A0k4nlw8IJE/FdHe3/NaPPWb4uA/1ZM41q6+VZ81mVA4ExFxM5y8ME
+         DPUalHxkkgum7aLbwOPLRKqOA3G+2LWiYXdTTWgaXKo4zL1+6l+xpt0rt5dGe9qmhePa
+         YKMw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of noreply@apec.fr designates 163.172.55.8 as permitted sender) smtp.mailfrom=noreply@apec.fr
+Return-Path: <noreply@apec.fr>
+Received: from mta06-relay.cloud.vadesecure.com (mta06-relay.cloud.vadesecure.com. [163.172.55.8])
+        by mx.google.com with ESMTPS id f8si9164185pln.208.2020.12.07.03.43.15
+        for <hugo.charrier2009@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Dec 2020 03:43:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@apec.fr designates 163.172.55.8 as permitted sender) client-ip=163.172.55.8;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of noreply@apec.fr designates 163.172.55.8 as permitted sender) smtp.mailfrom=noreply@apec.fr
+Received: from smtp2.apec.fr (smtp2.apec.fr [91.231.175.11]) by mta06-relay.cloud.vadesecure.com (vceu3mtao02p) with ESMTP id 4CqLzN50TSz7Rwc for <hugo.charrier2009@gmail.com>; Mon,
+  7 Dec 2020 12:43:12 +0100 (CET)
+Received: from smtp2.apec.fr (localhost.localdomain [127.0.0.1]) by localhost (Email Security Appliance) with SMTP id EF5A0EB72D2_FCE154EB for <hugo.charrier2009@gmail.com>; Mon,
+  7 Dec 2020 11:43:10 +0000 (GMT)
+Received: from sol1prod.euclide.apec.fr (sol1prod.euclide.apec.fr [10.1.10.189]) by smtp2.apec.fr (Sophos Email Appliance) with ESMTP id DD619EB4805_FCE154EF for <hugo.charrier2009@gmail.com>; Mon,
+  7 Dec 2020 11:43:10 +0000 (GMT)
+Date: Mon, 7 Dec 2020 12:43:10 +0100 (CET)
+From: noreply@apec.fr
+To: hugo.charrier2009@gmail.com
+Message-ID: <1612959471.1358337.1607341390957@sol1prod.euclide.apec.fr>
+Subject: Candidature sur offre d'emploi N° 165783745W - ABYLSEN - Ingénieur en automatisme et robotique F/H
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="----=_Part_1358335_1862266429.1607341390941"
+X-VRC-SPAM-STATUS: 0,0,gggruggvucftvghtrhhoucdtuddrgedujedrudejgedgfeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuggftvedpqfgfvfenuceurghilhhouhhtmecufedttdenucenucfjughrpeffhffvkffugggtsehmtdgssgdttdejnecuhfhrohhmpehnohhrvghplhihsegrphgvtgdrfhhrnecuggftrfgrthhtvghrnhepgefgteeuhfdvlefhieffgeekffehgfekkeefleeffeduveetgfefgeegkeegkeeunecuffhomhgrihhnpegrphgvtgdrfhhrnecukfhppeeluddrvdefuddrudejhedruddunecuvehluhhsthgvrhfuihiivgepvddtnecurfgrrhgrmhepmhhouggvpehsmhhtphhouhhtpdhmrgigmhhsghhsihiivgepuddtgeekheejiedpihhnvghtpeeluddrvdefuddrudejhedruddupdhhvghlohepshhmthhpvddrrghpvggtrdhfrhdpmhgrihhlfhhrohhmpehnohhrvghplhihsegrphgvtgdrfhhrpdhrtghpthhtohephhhughhordgthhgrrhhrihgvrhdvtddtleesghhmrghilhdrtghomh
+X-VRC-SPAM-STATE: legit
+X-VRC-POLICY-STATUS: t=1,a=1,l=0
+
+------=_Part_1358335_1862266429.1607341390941
+Content-Type: multipart/related; boundary="----=_Part_1358336_2134558526.1607341390941"
+
+------=_Part_1358336_2134558526.1607341390941
+Content-Type: text/html;charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+    <title>Confirmation de candidature - cadre</title>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+</head>
+<body>
+<p>
+    <font face=3D"Arial, Helvetica, sans-serif" size=3D"2">
+                  Bonjour Monsieur Hugo Charrier, <br> <br>
+       =20
+        Votre dossier de candidature a =C3=A9t=C3=A9 transmis =C3=A0 l'entr=
+eprise
+        en r=C3=A9ponse =C3=A0 l'offre <b>Ing=C3=A9nieur en automatisme et =
+robotique F/H</b>. <br> <br>=20
+       =20
+        Cette candidature a =C3=A9t=C3=A9 transmise au recruteur au format =
+PDF. <br><br>
+       =20
+                =09Retrouvez l'offre d'emploi : <br><br><b>Ing=C3=A9nieur e=
+n automatisme et robotique F/H</b><br>
+                <br>Descriptif du poste<br>
+        <br> Dans le cadre du d=C3=A9veloppement de notre entit=C3=A9 Abyls=
+en ST/RA (Sciences & Technologies Rh=C3=B4ne-Alpes Auvergne Bourgogne), sp=
+=C3=A9cialis=C3=A9e dans le Transport (automobile, a=C3=A9ronautique, d=C3=
+=A9fense, spatiale et ferroviaire), l=E2=80=99Industrie Lourde (m=C3=A9tall=
+urgie, aci=C3=A9rie) et l=E2=80=99Energie, nous recherchons un(e) Ing=C3=A9=
+nieur(e) en Automatisme et robotique (H/F) pour int=C3=A9grer notre =C3=A9q=
+uipe de consultants et apporter votre expertise sur l=E2=80=99ensemble de n=
+os projets.=20
+=20
+ Quel est le challenge ?=20
+=20
+Dans un environnement industriel stimulant, vous intervenez dans le d=C3=A9=
+veloppement automatis=C3=A9 et robotis=C3=A9 de machines sp=C3=A9ciales. Vo=
+us d=C3=A9veloppez les nouveaux syst=C3=A8mes automatis=C3=A9s qui s=E2=80=
+=99int=C3=A9greront aux industries de demain !=20
+=20
+L=E2=80=99=C3=A9tude des syst=C3=A8mes =C3=A9lectriques / =C3=A9lectrotechn=
+iques complexes ; L=E2=80=99analyse fonctionnelle des machines; Le d=C3=A9v=
+eloppement des programmes d=E2=80=99automates et de robots; La programmatio=
+n des IHM; La r=C3=A9alisation des tests et essais; La mise en service et l=
+es installations sur site..<br>
+       =20
+        <br>Profil recherch=C3=A9<br>
+        <br> Issu(e) d=E2=80=99une formation Bac+5 (=C3=A9cole d=E2=80=99in=
+g=C3=A9nieurs ou, master II) avec une sp=C3=A9cialisation en automatisme / =
+robotique / =C3=A9lectricit=C3=A9 / =C3=A9lectrotechnique, vous justifiez d=
+=E2=80=99une premi=C3=A8re exp=C3=A9rience (minimum 6 mois de stage ou alte=
+rnance) en d=C3=A9veloppement et programmation de machines automatis=C3=A9e=
+s en environnement industriel.=20
+=20
+La ma=C3=AEtrise d=E2=80=99un des automates et robots suivants est indispen=
+sable :=20
+Siemens, Schneider, Rockwell=20
+Sta=C3=BCbli, Kuka, Fanuc=20
+=20
+Au-del=C3=A0 de vos connaissances techniques, c=E2=80=99est v=C3=A9ritablem=
+ent votre personnalit=C3=A9 qui fera la diff=C3=A9rence !=20
+=20
+Vous =C3=AAtes reconnu (e) pour :=20
+Votre capacit=C3=A9 =C3=A0 =C3=AAtre force de proposition au quotidien dans=
+ une optique d=E2=80=99am=C3=A9lioration continue; Votre curiosit=C3=A9 qui=
+ vous permettra de grandir au sein d=E2=80=99environnements en constante =
+=C3=A9volution; Vos facult=C3=A9s relationnelles qui faciliteront in=C3=A9v=
+itablement votre int=C3=A9gration au sein de nos =C3=A9quipes !.
+
+=20
+ LA CULTURE D'ENTREPRISE=20
+Nous sommes convaincus que chez Abylsen votre =C3=A9panouissement sera d=C3=
+=A9fini par votre investissement, l=E2=80=99=C3=A9motion et la performance =
+collective que vous souhaiterez atteindre au quotidien !=20
+=20
+Persuad=C3=A9s que le sentiment d=E2=80=99appartenance passe avant tout par=
+ des =C3=A9changes r=C3=A9guliers, notre service de d=C3=A9veloppement RH s=
+=E2=80=99assure au quotidien de maintenir le lien entre l=E2=80=99ensemble =
+des collaborateurs. Vous serez donc convi=C3=A9(e)s tout au long de l=E2=80=
+=99ann=C3=A9e =C3=A0 des afterworks, actions tutorats, conf=C3=A9rences tec=
+hniques, formations de d=C3=A9veloppement personnel etc.=20
+=20
+Abylsen ST/RA, c=E2=80=99est aujourd=E2=80=99hui 300 collaborateurs interve=
+nant sur les r=C3=A9gions Rh=C3=B4ne-Alpes Auvergne et Bourgogne pour nos a=
+gences de Lyon, Clermont-Ferrand, Grenoble et Annecy.<br>
+       =20
+        <br>Entreprise<br>
+        <br> ABYLSEN est un groupe de conseil en ing=C3=A9nierie internatio=
+nal riche de 1850 collaborateurs et repr=C3=A9sentant 123M=E2=82=AC de chif=
+fre d=E2=80=99affaires en 2019. Cr=C3=A9=C3=A9 par plusieurs entrepreneurs =
+en 2005, le groupe est n=C3=A9 d'une ambition commune de d=C3=A9veloppement=
+ =C3=A0 la maille des grandes r=C3=A9gions europ=C3=A9ennes et est d=C3=A9s=
+ormais implant=C3=A9 sur 21 localisations r=C3=A9parties sur 4 pay s (Franc=
+e, Suisse, Luxembourg, Belgique).=20
+ Multi-sp=C3=A9cialist e, nous intervenons sur 8 principaux secteurs d=E2=
+=80=99activit=C3=A9s (Automobile, A=C3=A9ronautique, Ferroviaire, Industrie=
+ lourde, Energie, IT/T=C3=A9l=C3=A9com, Lifesciences, Banque/Finance) et ap=
+portons nos expertises & comp=C3=A9tences =C3=A0 l=E2=80=99ensemble de nos =
+clients sur leurs projets d=E2=80=99innovation, de R&D et de performance op=
+=C3=A9rationnelle.=20
+ Cr=C3=A9ateur de solutions ing=C3=A9nieuses , nos collaborateurs consultan=
+ts issus des m=C3=A9tiers de l=E2=80=99Ing=C3=A9nierie, de l=E2=80=99IT & d=
+es Lifesciences apportent et d=C3=A9veloppent au quotidien leurs comp=C3=A9=
+tences et leur savoir-faire sur des projets aussi diversifi=C3=A9s qu=E2=80=
+=99enrichissants !<br> <br> <br>
+
+                   Vous pouvez suivre vos candidatures sur Apec.fr =C3=A0 p=
+artir de l'onglet
+=09   =09=09   <a href=3D"https://www.apec.fr/candidat.html">
+           <u><b>Mes Offres</b></u></a>.
+
+           <br> <br>
+       =20
+        Cordialement, <br> Votre Service clients <br> <br>
+                Vous avez une question ? <br>
+        Rendez-vous sur la=20
+        <a href=3D"https://www.apec.fr/toutes-nos-faq.html?c=3Dcandidat">
+        FAQ de l'Apec pour les cadres et jeunes dipl=C3=B4m=C3=A9s</a>.<br>=
+<br>
+       =20
+        Vous souhaitez nous contacter ? <br>
+        <img src=3D"https://www.apec.fr/modules/apec-jahia-module/assets/im=
+g/mail/numeros_azur/numero_azur_cadre_jd_deux_lignes.png"/>
+
+        (service gratuit + prix d'un appel local, du lundi au vendredi de 9=
+h =C3=A0 19h) ou par mail =C3=A0 l'adresse <a href=3D"mailto:act.cour@apec.=
+fr">act.cour@apec.fr</a> <br><br>
+       =20
+        <br>
+        <i>Merci de ne pas r=C3=A9pondre =C3=A0 cet e-mail en utilisant la =
+fonction "r=C3=A9pondre =C3=A0 l'exp=C3=A9diteur" de votre outil de message=
+rie.</i>
+       =20
+        <br> <br>
+    </font>
+</p>
+</body>
+</html>
+
+------=_Part_1358336_2134558526.1607341390941--
+------=_Part_1358335_1862266429.1607341390941
+Content-Type: application/pdf; name=candidature.pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=candidature.pdf
+
+
+------=_Part_1358335_1862266429.1607341390941
+Content-Type: application/pdf; name=CV_Francais.pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=CV_Francais.pdf
+
+
+------=_Part_1358335_1862266429.1607341390941
+Content-Type: application/pdf; name=hugo.charrier2009_gmail.com_PROFIL.pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=hugo.charrier2009_gmail.com_PROFIL.pdf
+
+
+------=_Part_1358335_1862266429.1607341390941--
