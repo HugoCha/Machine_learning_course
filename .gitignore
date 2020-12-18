@@ -290,4 +290,5 @@ ml_env/
 *.jpeg
 *.png
 
-.*
+.vscode
+.ipynb*
